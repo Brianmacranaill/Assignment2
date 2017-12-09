@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entities.Person;
@@ -25,11 +27,53 @@ public class Controllers {
 	 * Calls index.html
 	 */
 	
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public String home(Model model)
+//	{
+//		return "index";
+//	}
+//	
+//	@RequestMapping(value = "/login", method = RequestMethod.GET)
+//	public String login()
+//	{
+//		return "login";
+//	}
+	
 	@GetMapping("/")
-	public String doWelcomeWithParams(Model model)
-	{
-		return "index";
-	}
+    public String home1() {
+        return "/fragments/home";
+    }
+
+    @GetMapping("/home")
+    public String home() {
+        return "/fragments/home";
+    }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "/adminPage";
+    }
+
+    @GetMapping("/user")
+    public String user() {
+        //return "/fragments/user";
+    	return "/index";
+    }
+
+    @GetMapping("/about")
+    public String about() {
+        return "/fragments/about";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "/fragments/login";
+    }
+
+    @GetMapping("/403")
+    public String error403() {
+        return "/fragments/error/403";
+    }
 	
 	@GetMapping("/valentinesDay")
 	public String valentinesDay(Model model)

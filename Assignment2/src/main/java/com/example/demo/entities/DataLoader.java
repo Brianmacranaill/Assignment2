@@ -18,11 +18,11 @@ public class DataLoader implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments arg0) throws Exception
 	{
-		personRepo.save(new Person(1, "Minnie Mouse", 65, "Minnie@cit.ie"));
-		personRepo.save(new Person(2, "Daisy Duck", 50, "Daisy@cit.ie"));
-		personRepo.save(new Person(3, "Gru", 56, "Gru@cit.ie"));
+		personRepo.save(new Person(1, "Admin", 65, "Admin@example.ie"));
+		personRepo.save(new Person(2, "Brian", 50, "Brian@example.ie"));
+		personRepo.save(new Person(3, "Test", 56, "Test@example.ie"));
 		
-		flowerRepo.save(new Flower(1, "Flower One", "Red", 10));
-		flowerRepo.save(new Flower(2, "Flower Two", "Blue", 5));
+		flowerRepo.save(new Flower(1, "Rose", "Red", 10));
+		flowerRepo.save(new Flower(2, "Tulip", "Blue", 5));
 	}
 }
