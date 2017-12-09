@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeLeaf.org">
+	<head>
+		<title>Spring Boot Thymeleaf Hello World Example</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link rel="stylesheet" type="text/css" media="all" href="../static/styles.css" th:href="@{/styles.css}"/>
+	</head>
+	<body>
+		<form>
+			<button formaction="/">Home</button>	
+			<button formaction="/usingParameter">Parameter</button>
+<!-- 			<button formaction="/usingParameter?name=Brian">Parameter name: Brian</button> -->
+			<button formaction="/displayAll">Display All</button>
+			<button formaction="/displayOne/1">Display ID 1</button>
+			<button formaction="/displayOne/2">Display ID 2</button>
+			<button formaction="/displayOne/3">Display ID 3</button>
+		</form>
+		<h1>Phillie's Flowers</h1>
+		<h2>Anniversaries</h2>
+
+	 	
+	</body>
+</html>

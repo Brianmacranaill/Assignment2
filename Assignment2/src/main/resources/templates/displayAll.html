@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeLeaf.org">
+	<head>
+		<title>Spring Boot Thymeleaf Hello World Example</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link rel="stylesheet" type="text/css" media="all" href="../static/styles.css" th:href="@{/styles.css}"/>
+	</head>
+	<body>
+		<form>
+			<button formaction="/">Home</button>	
+			<button formaction="/usingParameter">Parameter</button>
+<!-- 			<button formaction="/usingParameter?name=Brian">Parameter name: Brian</button> -->
+			<button formaction="/displayAll">Display All</button>
+			<button formaction="/displayOne/1">Display ID 1</button>
+			<button formaction="/displayOne/2">Display ID 2</button>
+			<button formaction="/displayOne/3">Display ID 3</button>
+		</form>
+		<h1>People in Database</h1>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Email Address</th>
+			</tr>
+			<tr th:each="person : ${people}">
+				<td th:text="${person.id}">ID</td>
+				<td th:text="${person.name}">NAME</td>
+				<td th:text="${person.age}">AGE</td>
+				<td th:text="${person.emailAddress}">EMAIL ADDRESS</td>
+			</tr>
+		</table>
+		<h1>Flowers in Database</h1>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Colour</th>
+				<th>Quanitity</th>
+			</tr>
+			<tr th:each="flower : ${flower}">
+				<td th:text="${flower.id}">ID</td>
+				<td th:text="${flower.name}">NAME</td>
+				<td th:text="${flower.colour}">COLOUR</td>
+				<td th:text="${flower.quantity}">QUANTITY</td>
+			</tr>
+		</table>
+	</body>
+</html>
