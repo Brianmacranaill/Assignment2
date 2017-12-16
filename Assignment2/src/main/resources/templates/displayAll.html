@@ -36,13 +36,15 @@
 				<th>ID</th>
 				<th>Name</th>
 				<th>Colour</th>
-				<th>Quanitity</th>
+				<th>Quantity</th>
+				<th>Cost</th>
 			</tr>
 			<tr th:each="flower : ${flower}">
 				<td th:text="${flower.id}">ID</td>
 				<td th:text="${flower.name}">NAME</td>
 				<td th:text="${flower.colour}">COLOUR</td>
 				<td th:text="${flower.quantity}">QUANTITY</td>
+				<td th:text="${flower.cost}">COST</td>
 			</tr>
 		</table>
 	</body>

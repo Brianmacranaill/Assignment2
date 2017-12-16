@@ -56,7 +56,6 @@ public class Controllers {
 
     @GetMapping("/user")
     public String user() {
-        //return "/fragments/user";
     	return "/index";
     }
 

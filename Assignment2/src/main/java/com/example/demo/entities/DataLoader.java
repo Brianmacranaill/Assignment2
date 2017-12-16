@@ -22,7 +22,7 @@ public class DataLoader implements ApplicationRunner {
 		personRepo.save(new Person(2, "Brian", 50, "Brian@example.ie"));
 		personRepo.save(new Person(3, "Test", 56, "Test@example.ie"));
 		
-		flowerRepo.save(new Flower(1, "Rose", "Red", 10));
-		flowerRepo.save(new Flower(2, "Tulip", "Blue", 5));
+		flowerRepo.save(new Flower(1, "Rose", "Red", 10, 5));
+		flowerRepo.save(new Flower(2, "Tulip", "Blue", 5, 3));
 	}
 }

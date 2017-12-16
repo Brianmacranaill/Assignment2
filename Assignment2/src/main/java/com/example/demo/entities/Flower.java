@@ -7,16 +7,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Flower {
 	@Id
 	int id;
-	
 	String name;
 	String colour;
 	int quantity;
-	public Flower(int id, String name, String colour, int quantity) {
+	int cost;
+	public Flower(int id, String name, String colour, int quantity, int cost) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.colour = colour;
 		this.quantity = quantity;
+		this.cost = cost;
 	}
 	public int getId() {
 		return id;
@@ -41,5 +42,11 @@ public class Flower {
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	public int getCost() {
+		return cost;
+	}
+	public void setCost(int cost) {
+		this.cost =  cost;
 	}
 }
