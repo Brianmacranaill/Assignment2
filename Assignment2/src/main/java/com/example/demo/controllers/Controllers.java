@@ -7,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entities.Person;
@@ -56,6 +54,7 @@ public class Controllers {
 
     @GetMapping("/user")
     public String user() {
+        //return "/fragments/user";
     	return "/index";
     }
 
@@ -71,7 +70,7 @@ public class Controllers {
 
     @GetMapping("/403")
     public String error403() {
-        return "/fragments/error/403";
+        return "/fragments/403";
     }
 	
 	@GetMapping("/valentinesDay")
@@ -104,17 +103,6 @@ public class Controllers {
 		return "addonItems";
 	}
 	
-	@GetMapping("/specialPackages")
-	public String specialPackages(Model model)
-	{
-		return "specialPackages";
-	}
-	
-	@GetMapping("/customGifts")
-	public String customGifts(Model model)
-	{
-		return "customGifts";
-	}
 	/*
 	 * An example of using a path variable
 	 * localhost:8080/usingParameter?name=Cliona will add Cliona to the welcome
