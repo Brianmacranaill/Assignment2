@@ -47,5 +47,20 @@
 				<td th:text="${flower.cost}">COST</td>
 			</tr>
 		</table>
+		
+		<h1>Packages in Database</h1>
+		<p></p>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="package : ${package}">
+				<td th:text="${package.id}">ID</td>
+				<td th:text="${package.name}">NAME</td>
+				<td th:text="${package.price}">AGE</td>
+			</tr>
+		</table>
 	</body>
 </html>

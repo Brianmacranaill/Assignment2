@@ -8,40 +8,68 @@
 	<body>
 		<form>
 			<button formaction="/user" th:text="#{home}"></button>	
-			<button formaction="/usingParameter">Parameter</button>
-<!-- 			<button formaction="/usingParameter?name=Brian">Parameter name: Brian</button> -->
-			<button formaction="/displayAll">Display All</button>
-			<button formaction="/displayOne/1">Display ID 1</button>
-			<button formaction="/displayOne/2">Display ID 2</button>
-			<button formaction="/displayOne/3">Display ID 3</button>
 		</form>
 		<h1 th:text="#{PhilliesFlowers}">Phillie's Flowers</h1>
 		<h2 th:text="#{availablePackages}"></h2>
-		<form>
-			<button formaction="/valentinesDay" th:text="#{valentinesDay}"></button>
-			<button formaction="/birthday" th:text="#{birthdays}"></button>
-			<button formaction="/anniversaries" th:text="#{anniversaries}">Anniversaries</button>
-			<Button formaction="/otherOccasions" th:text="#{specialOccasions}">Other Special Occasions</Button>
-		</form>
-		<form>
-			<button formaction="/addonItems" th:text="#{addonItems}">Add-on Items</button>
-		</form>
-		<p>Pre-Specified Special Packages, Custom Gifts</p>
-	 	<p>Add on items, like Teddy Bears and Chocolate</p>
-	 	<p>Order custom gifts(Choses their make-up of a bouqet, selects chocolates, toys, etc), or pre-set packages that can be ordered as a single-item</p>
+		<p th:text="#{valentinesDay}"></p>
+		<p th:text="#{birthdays}"></p>
+		<p th:text="#{anniversaries}"></p>
+		<p th:text="#{specialOccasions}"></p>
+		<p th:text="#{addonItems}"></p>
+		
+		
+		<h1 th:text="#{packagesAndAddon}"></h1>
+		<table>
+			<tr>
+				<th th:text="#{id}"></th>
+				<th th:text="#{name}"></th>
+				<th th:text="#{price}"></th>
+			</tr>
+			<tr th:each="package : ${package}">
+				<td th:text="${package.id}">ID</td>
+				<td th:text="${package.name}">NAME</td>
+				<td th:text="${package.price}">AGE</td>
+			</tr>
+		</table>
+		
+		<h2 th:text="#{birthdays}"></h2>
+		<h2 th:text="#{anniversaries}"></h2>
+		<h2 th:text="#{specialOccasions}"></h2>
+		<h2 th:text="#{addonItems}"></h2>
+		
+		<h1 th:text="#{individualItems}"></h1>
+		<table>
+			<tr>
+				<th th:text="#{id}">ID</th>
+				<th th:text="#{name}">Name</th>
+				<th th:text="#{colour}">Colour</th>
+				<th th:text="#{quantity}">Quantity</th>
+				<th>Cost</th>
+			</tr>
+			<tr th:each="flower : ${flower}">
+				<td th:text="${flower.id}">ID</td>
+				<td th:text="${flower.name}">NAME</td>
+				<td th:text="${flower.colour}">COLOUR</td>
+				<td th:text="${flower.quantity}">QUANTITY</td>
+				<td th:text="${flower.cost}">COST</td>
+			</tr>
+		</table>
+		
+		
+	</body>
+	<footer>
 		<span th:text="#{lang.change}"></span>:
 		<select id="locales">
 		    <option value=""></option>
 		    <option value="en" th:text="#{lang.eng}"></option>
 		    <option value="fr" th:text="#{lang.fr}"></option>
 		</select>
-	</body>
-	<footer>
 		<span sec:authorize="isAuthenticated()">
                 Logged In As: <span sec:authentication="name"></span> |
          	<a th:href="@{/logout}">Sign Out</a>
         </span>
 	</footer>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
 	</script>
 	<script type="text/javascript">

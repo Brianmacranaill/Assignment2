@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.repositories.PersonRepo;
 import com.example.demo.repositories.FlowerRepo;
+import com.example.demo.repositories.PackageRepo;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -14,6 +15,8 @@ public class DataLoader implements ApplicationRunner {
 	PersonRepo personRepo;
 	@Autowired
 	FlowerRepo flowerRepo;
+	@Autowired
+	PackageRepo packageRepo;
 	
 	@Override
 	public void run(ApplicationArguments arg0) throws Exception
@@ -24,5 +27,13 @@ public class DataLoader implements ApplicationRunner {
 		
 		flowerRepo.save(new Flower(1, "Rose", "Red", 10, 5));
 		flowerRepo.save(new Flower(2, "Tulip", "Blue", 5, 3));
+		
+		packageRepo.save(new Package(1, "Valentine's Day Package 1", 100));
+		packageRepo.save(new Package(5, "Birthday Package 1", 150));
+		packageRepo.save(new Package(10, "Marriage Anniversaries Package 1", 75));
+		packageRepo.save(new Package(15, "Other Special Occasions Package 1", 200));
+		packageRepo.save(new Package(20, "Chocolates", 10));
+		packageRepo.save(new Package(21, "Teddy Bear", 15));
+		packageRepo.save(new Package(22, "Addon Item 3", 12));
 	}
 }

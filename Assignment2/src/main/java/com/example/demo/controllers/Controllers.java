@@ -13,6 +13,8 @@ import com.example.demo.entities.Person;
 import com.example.demo.repositories.PersonRepo;
 import com.example.demo.entities.Flower;
 import com.example.demo.repositories.FlowerRepo;
+import com.example.demo.entities.Package;
+import com.example.demo.repositories.PackageRepo;
 
 @Controller
 public class Controllers {
@@ -21,6 +23,8 @@ public class Controllers {
 	PersonRepo personRepo;
 	@Autowired
 	FlowerRepo flowerRepo;
+	@Autowired
+	PackageRepo packageRepo;
 	/**
 	 * Calls index.html
 	 */
@@ -48,13 +52,22 @@ public class Controllers {
     }
 
     @GetMapping("/admin")
-    public String admin() {
+    public String admin(Model model) {
+    	List<Person> p = personRepo.findAll();
+		model.addAttribute("people", p);
+		List<Flower> f = flowerRepo.findAll();
+		model.addAttribute("flower", f);
+		List<Package> pa = packageRepo.findAll();
+		model.addAttribute("package", pa);
         return "/adminPage";
     }
 
     @GetMapping("/user")
-    public String user() {
-        //return "/fragments/user";
+    public String user(Model model) {
+    	List<Package> pa = packageRepo.findAll();
+		model.addAttribute("package", pa);
+		List<Flower> f = flowerRepo.findAll();
+		model.addAttribute("flower", f);
     	return "/index";
     }
 
@@ -131,6 +144,8 @@ public class Controllers {
 		model.addAttribute("people", p);
 		List<Flower> f = flowerRepo.findAll();
 		model.addAttribute("flower", f);
+		List<Package> pa = packageRepo.findAll();
+		model.addAttribute("package", pa);
 		return "displayAll";
 	}
 	
